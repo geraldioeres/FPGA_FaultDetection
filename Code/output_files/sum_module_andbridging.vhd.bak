@@ -1,0 +1,21 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity sum_module_andbridging is 
+	port(
+		GP_xor, CLA_in: in std_logic_vector(3 downto 0);
+		Sum_Out: out std_logic_vector(3 downto 0)
+	);
+end sum_module;
+
+architecture arch of sum_module_andbridging is
+	signal sum_temp: std_logic_vector(3 downto 0);
+begin
+	sum_temp(0) <= GP_xor(0) xor CLA_in(0);
+	sum_temp(1) <= GP_xor(1) xor CLA_in(1);
+	sum_temp(2) <= GP_xor(2) xor CLA_in(2);
+	sum_temp(3) <= GP_xor(3) xor CLA_in(3);
+	
+	Sum_Out <= sum_temp;
+end arch;

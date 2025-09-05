@@ -1,0 +1,41 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity gp_module_orbridging is
+	port(
+		A_in: in std_logic_vector(3 downto 0);
+		B_in: in std_logic_vector(3 downto 0);		
+		G_out: out std_logic_vector(3 downto 0);
+		P_out: out std_logic_vector(3 downto 0);
+		XOR_out: out std_logic_vector(3 downto 0)
+	);
+end gp_module_orbridging;
+
+
+architecture behavioral of gp_module_orbridging is
+	signal g_temp, p_temp: std_logic_vector(3 downto 0);
+	signal or_bridge: std_logic;
+begin
+	g_temp(0) <= A_in(0) nand B_in(0);
+	p_temp(0) <= A_in(0) nor B_in(0);
+	
+	g_temp(1) <= A_in(1) nand B_in(1);
+	p_temp(1) <= A_in(1) nor B_in(1);
+	
+	g_temp(2) <= A_in(2) nand B_in(2);
+	p_temp(2) <= A_in(2) nor B_in(2);
+	
+	g_temp(3) <= A_in(3) nand B_in(3);
+	p_temp(3) <= A_in(3) nor B_in(3);
+
+	G_out <= g_temp;
+	P_out <= p_temp;
+	XOR_out(0) <= 	g_temp(0) and not (p_temp(0));
+	XOR_out(1) <= 	g_temp(1) and not (p_temp(1));
+	or_bridge <= g_temp(2) or p_temp(2);
+	XOR_out(2) <=  or_bridge and not (or_bridge);
+	XOR_out(3) <= 	g_temp(3) and not (p_temp(3));
+	
+	
+end behavioral;

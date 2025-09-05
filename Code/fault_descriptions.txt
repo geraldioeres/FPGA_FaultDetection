@@ -1,0 +1,7 @@
+Types of faults modeled on 74283:
+- Single Stuck
+- Multiple Stuck
+- AND Bridging
+- OR Bridging
+
+Files for each fault modelling are in the 'output_files' directory.

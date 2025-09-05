@@ -1,0 +1,58 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity fast_adder_vhdl_stucksingle is
+	port(
+		A, B: in std_logic_vector(3 downto 0);
+		C0_In: in std_logic;
+		
+		S_Out: out std_logic_vector(3 downto 0);
+		C4_Out: out std_logic
+	);
+end fast_adder_vhdl_stucksingle;
+
+architecture arch of fast_adder_vhdl_stucksingle is
+	signal g_hold, p_hold, xor_hold, cla_hold, res_hold: std_logic_vector(3 downto 0);
+	signal c4_hold: std_logic;
+	
+	component gp_module_stuck
+		port(
+			A_in: in std_logic_vector(3 downto 0);
+			B_in: in std_logic_vector(3 downto 0);		
+			G_out: out std_logic_vector(3 downto 0);
+			P_out: out std_logic_vector(3 downto 0);
+			XOR_out: out std_logic_vector(3 downto 0)
+		);
+	end component;
+	
+	component cla_module
+		port(
+			G_in, P_in: in std_logic_vector(3 downto 0);
+			C0: in std_logic;
+		
+			S: out std_logic_vector(3 downto 0);
+			C4: out std_logic
+		);
+	end component;
+	
+	component sum_module
+		port(
+			GP_xor, CLA_in: in std_logic_vector(3 downto 0);
+			Sum_Out: out std_logic_vector(3 downto 0)
+		);
+	end component;
+	
+begin
+	gp_mod: gp_module_stuck
+	port map(A, B, g_hold, p_hold, xor_hold);
+	
+	cla_mod: cla_module
+	port map(g_hold, p_hold, C0_In, cla_hold, c4_hold);
+	
+	sum_mod: sum_module
+	port map(xor_hold, cla_hold, res_hold);
+	
+	S_Out <= res_hold;
+	C4_Out <= c4_hold;
+end arch;

@@ -1,0 +1,104 @@
+|fast_adder_vhdl_stucksingle
+A[0] => gp_module_stuck:gp_mod.A_in[0]
+A[1] => gp_module_stuck:gp_mod.A_in[1]
+A[2] => gp_module_stuck:gp_mod.A_in[2]
+A[3] => gp_module_stuck:gp_mod.A_in[3]
+B[0] => gp_module_stuck:gp_mod.B_in[0]
+B[1] => gp_module_stuck:gp_mod.B_in[1]
+B[2] => gp_module_stuck:gp_mod.B_in[2]
+B[3] => gp_module_stuck:gp_mod.B_in[3]
+C0_In => cla_module:cla_mod.C0
+S_Out[0] <= sum_module:sum_mod.Sum_Out[0]
+S_Out[1] <= sum_module:sum_mod.Sum_Out[1]
+S_Out[2] <= sum_module:sum_mod.Sum_Out[2]
+S_Out[3] <= sum_module:sum_mod.Sum_Out[3]
+C4_Out <= cla_module:cla_mod.C4
+
+
+|fast_adder_vhdl_stucksingle|gp_module_stuck:gp_mod
+A_in[0] => g_temp.IN0
+A_in[0] => p_temp.IN0
+A_in[1] => p_temp.IN0
+A_in[2] => g_temp.IN0
+A_in[2] => p_temp.IN0
+A_in[3] => g_temp.IN0
+A_in[3] => p_temp.IN0
+B_in[0] => g_temp.IN1
+B_in[0] => p_temp.IN1
+B_in[1] => p_temp.IN1
+B_in[2] => g_temp.IN1
+B_in[2] => p_temp.IN1
+B_in[3] => g_temp.IN1
+B_in[3] => p_temp.IN1
+G_out[0] <= g_temp.DB_MAX_OUTPUT_PORT_TYPE
+G_out[1] <= <VCC>
+G_out[2] <= g_temp.DB_MAX_OUTPUT_PORT_TYPE
+G_out[3] <= g_temp.DB_MAX_OUTPUT_PORT_TYPE
+P_out[0] <= p_temp.DB_MAX_OUTPUT_PORT_TYPE
+P_out[1] <= p_temp.DB_MAX_OUTPUT_PORT_TYPE
+P_out[2] <= p_temp.DB_MAX_OUTPUT_PORT_TYPE
+P_out[3] <= p_temp.DB_MAX_OUTPUT_PORT_TYPE
+XOR_out[0] <= XOR_out.DB_MAX_OUTPUT_PORT_TYPE
+XOR_out[1] <= p_temp.DB_MAX_OUTPUT_PORT_TYPE
+XOR_out[2] <= XOR_out.DB_MAX_OUTPUT_PORT_TYPE
+XOR_out[3] <= XOR_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|fast_adder_vhdl_stucksingle|cla_module:cla_mod
+G_in[0] => s_temp.IN0
+G_in[0] => s_temp.IN0
+G_in[0] => s_temp.IN1
+G_in[0] => s_temp.IN1
+G_in[1] => s_temp.IN0
+G_in[1] => s_temp.IN1
+G_in[1] => s_temp.IN1
+G_in[1] => s_temp.IN0
+G_in[1] => s_temp.IN1
+G_in[1] => s_temp.IN1
+G_in[1] => s_temp.IN1
+G_in[2] => s_temp.IN0
+G_in[2] => s_temp.IN0
+G_in[2] => s_temp.IN1
+G_in[2] => s_temp.IN1
+G_in[2] => s_temp.IN0
+G_in[3] => s_temp.IN0
+G_in[3] => s_temp.IN0
+G_in[3] => s_temp.IN0
+G_in[3] => s_temp.IN1
+P_in[0] => s_temp.IN1
+P_in[0] => s_temp.IN1
+P_in[0] => s_temp.IN1
+P_in[0] => s_temp.IN1
+P_in[1] => s_temp.IN1
+P_in[1] => s_temp.IN1
+P_in[1] => s_temp.IN1
+P_in[2] => s_temp.IN1
+P_in[2] => s_temp.IN1
+P_in[3] => s_temp.IN1
+C0 => s_temp.IN1
+C0 => s_temp.IN1
+C0 => s_temp.IN1
+C0 => s_temp.IN1
+C0 => S[0].DATAIN
+S[0] <= C0.DB_MAX_OUTPUT_PORT_TYPE
+S[1] <= s_temp.DB_MAX_OUTPUT_PORT_TYPE
+S[2] <= s_temp.DB_MAX_OUTPUT_PORT_TYPE
+S[3] <= s_temp.DB_MAX_OUTPUT_PORT_TYPE
+C4 <= s_temp.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|fast_adder_vhdl_stucksingle|sum_module:sum_mod
+GP_xor[0] => sum_temp.IN0
+GP_xor[1] => sum_temp.IN0
+GP_xor[2] => sum_temp.IN0
+GP_xor[3] => sum_temp.IN0
+CLA_in[0] => sum_temp.IN1
+CLA_in[1] => sum_temp.IN1
+CLA_in[2] => sum_temp.IN1
+CLA_in[3] => sum_temp.IN1
+Sum_Out[0] <= sum_temp.DB_MAX_OUTPUT_PORT_TYPE
+Sum_Out[1] <= sum_temp.DB_MAX_OUTPUT_PORT_TYPE
+Sum_Out[2] <= sum_temp.DB_MAX_OUTPUT_PORT_TYPE
+Sum_Out[3] <= sum_temp.DB_MAX_OUTPUT_PORT_TYPE
+
+
